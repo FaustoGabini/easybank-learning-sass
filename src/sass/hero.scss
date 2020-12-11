@@ -1,0 +1,14 @@
+
+.hero{
+    text-align: center;
+    .copy{        
+        margin-bottom: 2.5em;
+    }
+    &__image{
+        height: 300px;
+        margin: 0 -1.5em;/* Margen negativo*/
+        background: url('../images/image-mockups.png') center bottom no-repeat, url('../images/bg-intro-mobile.svg') center no-repeat  ;
+        background-size: 345px, cover; /* A la primer imagen le pone 327 y a la otra que ocupe todo */
+        margin-bottom: 1.2em;
+    }
+}
