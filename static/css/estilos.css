@@ -41,6 +41,71 @@
   margin-bottom: 1.5em;
 }
 
+.lastestArticles {
+  background: var(--lightGray);
+  padding: 5em 0;
+}
+.lastestArticles h1 {
+  text-align: center;
+}
+.lastestArticles__grid {
+  display: grid;
+  grid-row-gap: 2em;
+}
+.lastestArticles__item {
+  border-radius: 0.5em;
+  overflow: hidden;
+  /* No se sobresale la img y le pone el borde a la img tambien */
+  background: #FFF;
+}
+.lastestArticles__item-content {
+  padding: 1.8em 1.8em;
+  /* Padding al texto de abajo de la imagen */
+}
+.lastestArticles__item .copy {
+  color: var(--grayBlue);
+}
+.lastestArticles__item small {
+  color: var(--grayBlue);
+  margin-bottom: 1em;
+  display: block;
+}
+.lastestArticles__item img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  /* No se me estira la imagen */
+}
+
+.footer {
+  background: var(--darkBlue);
+  color: #FFF;
+  padding: 2em;
+  text-align: center;
+}
+.footer svg {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 2em;
+}
+.footer__link {
+  display: block;
+  color: var(--gray);
+  text-decoration: none;
+  margin-bottom: 2em;
+}
+.footer__social {
+  display: grid;
+  grid-template-columns: repeat(5, 25px);
+  grid-column-gap: 1em;
+  justify-content: center;
+  margin: 2.5em 0;
+}
+.footer__copyright {
+  color: var(--grayBlue);
+  margin-top: 2.5em;
+}
+
 :root {
   --darkBlue: hsl(233, 26%, 24%);
   --limeGreen: hsl(136, 65%, 51%);
@@ -72,7 +137,7 @@ body {
   padding: 0 var(--wrapperSpace);
 }
 
-.title__h1, .title__h2 {
+.title__h1, .title__h3, .title__h2 {
   font-size: 2.5em;
   color: var(--darkBlue);
   font-weight: 300;
@@ -83,6 +148,9 @@ body {
   /* extiende todas las propriedas de la clase */
   font-size: 1.5em;
 }
+.title__h3 {
+  font-size: 0.9em;
+}
 
 .button {
   padding: 0.9em 2.5em;
@@ -91,6 +159,47 @@ body {
   border: none;
   color: #FFF;
   background-image: linear-gradient(to right, var(--limeGreen) 0%, var(--rightCyan) 100%);
+}
+
+.icon__facebook {
+  width: 25px;
+  height: 25px;
+  display: inline-flex;
+  /* Por defecto recibe inline y no puede recibir anchos y altos */
+  background-repeat: no-repeat;
+  background-image: url("../images/icon-facebook.svg");
+}
+.icon__youtube {
+  width: 25px;
+  height: 25px;
+  display: inline-flex;
+  /* Por defecto recibe inline y no puede recibir anchos y altos */
+  background-repeat: no-repeat;
+  background-image: url("../images/icon-youtube.svg");
+}
+.icon__twitter {
+  width: 25px;
+  height: 25px;
+  display: inline-flex;
+  /* Por defecto recibe inline y no puede recibir anchos y altos */
+  background-repeat: no-repeat;
+  background-image: url("../images/icon-twitter.svg");
+}
+.icon__pinterest {
+  width: 25px;
+  height: 25px;
+  display: inline-flex;
+  /* Por defecto recibe inline y no puede recibir anchos y altos */
+  background-repeat: no-repeat;
+  background-image: url("../images/icon-pinterest.svg");
+}
+.icon__instagram {
+  width: 25px;
+  height: 25px;
+  display: inline-flex;
+  /* Por defecto recibe inline y no puede recibir anchos y altos */
+  background-repeat: no-repeat;
+  background-image: url("../images/icon-instagram.svg");
 }
 
 /*# sourceMappingURL=estilos.css.map */
