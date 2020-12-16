@@ -2,4 +2,4 @@
 I'm  learning sass
   - Watch the live project
 
-(challenge-assets/design/desktop-preview.jpg)
+(https://github.com/FaustoGabini/easybank-learning-sass/blob/master/challenge-assets/design/new-desktop.png)
