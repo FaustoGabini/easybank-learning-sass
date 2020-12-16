@@ -1,15 +1,71 @@
-
-.hero{
+.hero {
     text-align: center;
     padding-bottom: 5em;
-    .copy{        
+    background: var(--lightGray);
+
+    .copy {
         margin-bottom: 2.5em;
     }
-    &__image{
+
+    &__image {
         height: 300px;
-        margin: 0 -1.5em;/* Margen negativo*/
-        background: url('../images/image-mockups.png') center bottom no-repeat, url('../images/bg-intro-mobile.svg') center no-repeat  ;
-        background-size: 345px, cover; /* A la primer imagen le pone 327 y a la otra que ocupe todo */
+        margin: 0 -1.5em;
+        /* Margen negativo*/
+        background: url('../images/image-mockups.png') center bottom no-repeat, url('../images/bg-intro-mobile.svg') center no-repeat;
+        background-size: 345px, cover;
+        /* A la primer imagen le pone 345 y a la otra que ocupe todo */
         margin-bottom: 1.2em;
+
+    }
+
+    &__imageSrc{
+        display: none;
+    }
+
+    @media screen and (min-width: 768px) {
+        text-align: left;
+        background:url('../images/bg-intro-desktop.svg') left 600px top -290px no-repeat;
+        background-size: cover;
+        min-height: 550px;  
+        box-sizing: border-box;
+         
+        
+        &__content {
+            
+            display: grid;
+            grid-template-areas: "description image";
+            grid-template-columns: 480px 1fr; 
+            min-height: 550px;
+            align-items: center; 
+            position: relative;  
+                
+        }
+
+        &__imageSrc{
+            display: none;
+        }
+        &__image{
+            grid-area: image; /* Hacemos asi porque la imagen nos aparecia a la izquierda */
+            min-height: 700px;            
+            min-height: inherit;/* mismo height que el padre */
+            position: absolute;
+            left: 0;
+            height: 500px;           
+            background-size: cover;
+        }
+    }
+    @media screen and (min-width: 1024px){
+/*         background:url('../images/bg-intro-desktop.svg') left 600px top -290px no-repeat; */
+        
+        &__image{           
+            background: url('../images/image-mockups.png') right bottom no-repeat;
+            background: none;
+            background-size: 50%;             
+            height: 700px;
+            right: 0;           
+            left: 150px;
+            top:0;
+        }
+
     }
 }

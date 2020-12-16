@@ -1,12 +1,33 @@
 .header {
-  display: flex;
-  padding: 1em 1.5em;
+  padding: 1em 0;
   justify-content: space-between;
+  position: relative;
+}
+.header__logo {
+  align-self: center;
+}
+.header .button {
+  display: none;
+}
+.header__content {
+  display: flex;
+  justify-content: space-between;
+}
+@media screen and (min-width: 1024px) {
+  .header .button {
+    display: inline;
+  }
+  .header__content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 .hero {
   text-align: center;
   padding-bottom: 5em;
+  background: var(--lightGray);
 }
 .hero .copy {
   margin-bottom: 2.5em;
@@ -17,13 +38,118 @@
   /* Margen negativo*/
   background: url("../images/image-mockups.png") center bottom no-repeat, url("../images/bg-intro-mobile.svg") center no-repeat;
   background-size: 345px, cover;
-  /* A la primer imagen le pone 327 y a la otra que ocupe todo */
+  /* A la primer imagen le pone 345 y a la otra que ocupe todo */
   margin-bottom: 1.2em;
+}
+.hero__imageSrc {
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .hero {
+    text-align: left;
+    background: url("../images/bg-intro-desktop.svg") left 600px top -290px no-repeat;
+    background-size: cover;
+    min-height: 550px;
+    box-sizing: border-box;
+  }
+  .hero__content {
+    display: grid;
+    grid-template-areas: "description image";
+    grid-template-columns: 480px 1fr;
+    min-height: 550px;
+    align-items: center;
+    position: relative;
+  }
+  .hero__imageSrc {
+    display: none;
+  }
+  .hero__image {
+    grid-area: image;
+    /* Hacemos asi porque la imagen nos aparecia a la izquierda */
+    min-height: 700px;
+    min-height: inherit;
+    /* mismo height que el padre */
+    position: absolute;
+    left: 0;
+    height: 500px;
+    background-size: cover;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .hero {
+    /*         background:url('../images/bg-intro-desktop.svg') left 600px top -290px no-repeat; */
+  }
+  .hero__image {
+    background: url("../images/image-mockups.png") right bottom no-repeat;
+    background: none;
+    background-size: 50%;
+    height: 700px;
+    right: 0;
+    left: 150px;
+    top: 0;
+  }
 }
 
 .menu {
+  display: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.menu__button {
   width: 40px;
+  height: 40px;
   background: url("../images/icon-hamburger.svg") no-repeat center;
+}
+.menu a {
+  text-decoration: none;
+  color: var(--grayBlue);
+  padding: 0 0.8em;
+}
+.menu__item {
+  display: flex;
+  align-items: center;
+}
+.menu__checkbox {
+  display: none;
+}
+.menu__checkbox:checked ~ .menu__button {
+  background: url("../images/icon-close.svg") no-repeat center;
+}
+.menu__checkbox:checked ~ .menu {
+  display: block;
+  position: absolute;
+  top: 100%;
+  padding: 1em;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  background: linear-gradient(to bottom, var(--darkBlue) 0%, transparent 90%);
+}
+.menu__checkbox:checked ~ .menu .menu__item:first-of-type a {
+  padding-top: 2em;
+  border-radius: 0.5em 0.5em 0 0;
+}
+.menu__checkbox:checked ~ .menu .menu__item:last-of-type a {
+  padding-bottom: 2em;
+  border-radius: 0 0 0.5em 0.5em;
+}
+.menu__checkbox:checked ~ .menu a {
+  background: white;
+  padding: 0.8em 1em;
+  color: var(--darkBlue);
+  font-size: 1.1em;
+  display: block;
+  text-align: center;
+  flex: 1;
+}
+@media screen and (min-width: 1024px) {
+  .menu {
+    display: flex;
+  }
+  .menu__button {
+    display: none;
+  }
 }
 
 .why {
@@ -40,6 +166,22 @@
 .why__item img {
   margin-bottom: 1.5em;
 }
+@media screen and (min-width: 768px) {
+  .why {
+    text-align: left;
+  }
+  .why__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 1em;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .why__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
 
 .lastestArticles {
   background: var(--lightGray);
@@ -47,6 +189,7 @@
 }
 .lastestArticles h1 {
   text-align: center;
+  margin-bottom: 1em;
 }
 .lastestArticles__grid {
   display: grid;
@@ -76,6 +219,25 @@
   object-fit: cover;
   /* No se me estira la imagen */
 }
+@media screen and (min-width: 768px) {
+  .lastestArticles h1 {
+    text-align: left;
+  }
+  .lastestArticles__item__content {
+    padding: 1;
+    /* Padding al texto de abajo de la imagen */
+  }
+  .lastestArticles__grid {
+    display: grid;
+    grid-column-gap: 30px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (min-width: 1024px) {
+  .lastestArticles__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
 
 .footer {
   background: var(--darkBlue);
@@ -83,7 +245,7 @@
   padding: 2em;
   text-align: center;
 }
-.footer svg {
+.footer__logo {
   display: block;
   margin: 0 auto;
   margin-bottom: 2em;
@@ -104,6 +266,35 @@
 .footer__copyright {
   color: var(--grayBlue);
   margin-top: 2.5em;
+}
+@media screen and (min-width: 1024px) {
+  .footer .wrapper {
+    display: grid;
+    grid-column-gap: 7em;
+    grid-template-columns: 200px 1fr 400px;
+    grid-template-areas: "logo links button" "social links copyright";
+  }
+  .footer__links {
+    grid-area: links;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: start;
+  }
+  .footer__logo {
+    margin: initial;
+    grid-area: logo;
+  }
+  .footer__social {
+    grid-area: social;
+  }
+  .footer__button {
+    text-align: right;
+    grid-area: button;
+  }
+  .footer__copyright {
+    text-align: right;
+    grid-area: copyright;
+  }
 }
 
 :root {
@@ -135,6 +326,10 @@ body {
 
 .wrapper {
   padding: 0 var(--wrapperSpace);
+  max-width: calc(1115px + 1.5em);
+  margin: auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .title__h1, .title__h3, .title__h2 {
